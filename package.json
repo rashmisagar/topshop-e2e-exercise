@@ -1,0 +1,25 @@
+{
+  "name": "monty-e2e-exercise",
+  "version": "1.0.0",
+  "description": "Monty E2E exercise",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.24.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-register": "^6.24.0",
+    "cucumber": "^0.10.4",
+    "wdio-cucumber-framework": "^0.1.0",
+    "wdio-cucumber-reporter": "0.0.2",
+    "wdio-dot-reporter": "0.0.6",
+    "wdio-selenium-standalone-service": "0.0.8",
+    "webdriverio": "4.6.2"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/wdio wdio.conf.js"
+  },
+  "author": "Monty QA",
+  "license": "ISC"
+}
