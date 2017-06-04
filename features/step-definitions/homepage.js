@@ -1,4 +1,4 @@
-var homepage = require('../../pageObjects/homepage');
+var homepage = require('../../pageObjects/home');
 
 module.exports = function () {
     this.Given(/^I am on the landing page$/, homepage.gotoPage)

@@ -1,6 +1,6 @@
 
-var homepage = require('../../pageObjects/homepage');
-var topspage = require('../../pageObjects/topspage');
+var homepage = require('../../pageObjects/home');
+var topspage = require('../../pageObjects/tops');
 
 
 var assert = require('assert')
@@ -15,11 +15,11 @@ module.exports = function () {
 
             } else if(page == 'tops'){
                 homepage.searchItem();
-                homepage.searchby('tops');
+                homepage.searchBy('tops');
                 homepage.applySearch();
                 browser.pause(2000);
                 topspage.showProductView();
-                var hasTopsHeader = topspage.gettopsheaderText();
+                var hasTopsHeader = topspage.getTopsHeaderText();
                 assert.equal(hasTopsHeader,'Tops','this will pass');
 
                 browser.pause(2000);
@@ -58,8 +58,6 @@ module.exports = function () {
     this.Given(/^I select colour 'Black'$/,
         function (done) {
 
-           // assert(topspage.isVisibleBlackColourFilter(), "Black Colour should be visible");
-            chai.assert(true == topspage.isVisibleBlackColourFilter(), 'Black Colour should be visible' );
             topspage.selectBlackColourFilter();
 
             done();
@@ -71,7 +69,6 @@ module.exports = function () {
     this.Given(/^I select colour 'White'$/,
         function (done) {
 
-            chai.assert(true == topspage.isVisibleBlackColourFilter(), 'Black Colour should be visible' );
             topspage.selectWhiteColourFilter();
 
             done();
@@ -92,11 +89,11 @@ module.exports = function () {
 
             if(numfilter == '1') {
                 var numberoffilterapplied = topspage.getNumberofFilterApplied();
-                assert.equal(numberoffilterapplied, '(1)');
+                assert.equal(numberoffilterapplied, '(1)', '(1) Filter applied');
 
             } else if(numfilter == 'no') {
                 var numberoffilterapplied = topspage.getNumberofFilterApplied();
-                assert.equal(numberoffilterapplied, '');
+                assert.equal(numberoffilterapplied, '', 'No Filter applied');
             }
 
             done();
@@ -106,7 +103,7 @@ module.exports = function () {
         function (done) {
 
             topspage.showProductView();
-            var hasTopsHeader = topspage.gettopsheaderText();
+            var hasTopsHeader = topspage.getTopsHeaderText();
             assert.equal(hasTopsHeader,'Tops','this will pass');
 
             done();
@@ -122,4 +119,3 @@ module.exports = function () {
         }
     )
 }
-

@@ -71,8 +71,10 @@ export const getColourFilters = () => {
 }
 
 export const applyFilter = () => {
-    browser.isVisible('.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.Refinements-applyButtonWrapper > button');
-    browser.click('.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.Refinements-applyButtonWrapper > button');
+    browser.isVisible('.PlpContainer-productListContainer > div.Refinements.is-shown > div > ' +
+        'div.Refinements-applyButtonWrapper > button');
+    browser.click('.PlpContainer-productListContainer > div.Refinements.is-shown > div > ' +
+        'div.Refinements-applyButtonWrapper > button');
 }
 
 export const getNumberofFilterApplied = () => {
