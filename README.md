@@ -14,7 +14,7 @@ Once that's done, run ```npm test``` to kick off the test
 **Notes**
 I used chai as the assertion library in the scripts. 
 
-After cloning/downloading the repo, its good to run the following command after $npm install
+After cloning/downloading the repo, run  $ npm install  and then
 
      $npm install chai
      
