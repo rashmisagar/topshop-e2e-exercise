@@ -1,5 +1,3 @@
-//import * as homepage from '../../pageObjects/homepage'
-//import * as topspage from '../../pageObjects/topspage'
 
 var homepage = require('../../pageObjects/homepage');
 var topspage = require('../../pageObjects/topspage');
