@@ -1,9 +1,14 @@
-import * as homepage from '../../pageObjects/homepage'
-import * as topspage from '../../pageObjects/topspage'
+//import * as homepage from '../../pageObjects/homepage'
+//import * as topspage from '../../pageObjects/topspage'
+
+var homepage = require('../../pageObjects/homepage');
+var topspage = require('../../pageObjects/topspage');
+
+
+var assert = require('assert')
+var chai = require('chai')
 
 module.exports = function () {
-    this.Given(/^I am on the landing page$/, homepage.gotoPage)
-    this.Then(/^I can see logo in navigation bar$/, homepage.hasLogo)
 
     this.Given(/^I am viewing product list (homepage|tops)$/,
         function (page, done) {
@@ -55,7 +60,8 @@ module.exports = function () {
     this.Given(/^I select colour 'Black'$/,
         function (done) {
 
-            assert(topspage.isVisibleBlackColourFilter(), "Black Colour should be visible");
+           // assert(topspage.isVisibleBlackColourFilter(), "Black Colour should be visible");
+            chai.assert(true == topspage.isVisibleBlackColourFilter(), 'Black Colour should be visible' );
             topspage.selectBlackColourFilter();
 
             done();
@@ -67,7 +73,7 @@ module.exports = function () {
     this.Given(/^I select colour 'White'$/,
         function (done) {
 
-            assert(topspage.isVisibleWhiteColourFilter(), "White Colour should be visible");
+            chai.assert(true == topspage.isVisibleBlackColourFilter(), 'Black Colour should be visible' );
             topspage.selectWhiteColourFilter();
 
             done();

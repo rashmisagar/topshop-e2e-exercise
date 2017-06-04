@@ -12,6 +12,14 @@ Once that's done, run ```npm test``` to kick off the test
 
 
 **Notes**
-I used chai as the assertion library and included it globally in the config file
+I used chai as the assertion library in the scripts. 
+
+After cloning/downloading the repo, its good to run the following command after $npm install
+
+     $npm install chai
+     
+to let the chai assertions run without any errors
+
 filterbycolour_steps contains the step definitions of the feature
-To execute the tests, the same commands needs to run as above after cloning/downloading the repo.
+
+To execute the tests, the same command ```npm test``` is run
