@@ -42,8 +42,8 @@ module.exports = function () {
 
             const isVisible = browser.isVisible(element);
             var hasColourFilter = topspage.getColourFilterText();
-            assert.equal(hasColourFilter,'Colour');
-            if(hasColourFilter == "Colour"){
+            assert.equal(hasColourFilter,`${element}`);
+            if(hasColourFilter == `${element}`){
                 browser.pause(2000);
                 topspage.clickColourFilter();
                 browser.pause(3000);
