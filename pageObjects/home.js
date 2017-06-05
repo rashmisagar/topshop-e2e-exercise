@@ -1,6 +1,6 @@
 'use strict';
 /**
- * @classdesc Object that represents Home > Tops page > Filters.
+ * @classdesc Object that represents Home > Search > Tops page
  */
 class HomePage {
 

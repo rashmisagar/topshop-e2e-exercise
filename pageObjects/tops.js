@@ -9,6 +9,7 @@ class TopsPage {
             homeURL: '/',
             topsURL: '/en/tsuk/category/clothing-427/tops-44',
             topsHeaderText: '.PlpContainer-productListContainer > h1 > span.PlpHeader-title',
+            topsHeaderValue: '.PlpContainer-productListContainer > h1 > span.PlpHeader-total.PlpHeader-totalValue',
             productListView: ':nth-child(1) > div.ProductViews.Filters-column > button.Button.ProductViews-button.is-active',
             filterButton:'.Filters-column.Filters-refineButtonContainer > button',
             colourFilter: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > ' +
@@ -17,26 +18,38 @@ class TopsPage {
             blackColourFilter: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
             'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
             'button:nth-child(1) > span.ValueOption-label',
+            blackColourCount: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
+            'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
+            'button:nth-child(1) > span.ValueOption-count',
             whiteColourFilter: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
             'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
             'button:nth-child(15) > span.ValueOption-label',
+            whiteColourCount: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
+            'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
+            'button:nth-child(15) > span.ValueOption-count',
             applyFilterButton: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > ' +
             'div.Refinements-applyButtonWrapper > button',
             numberofFilterApplied: '.PlpContainer-productListContainer > div.Filters > div.Filters-row.Filters-refinement > ' +
             'div.Filters-column.Filters-refineButtonContainer > button > span',
             clearFilterButton:'.Refinements-clearButton',
-            //browser.isExisting('');
         };
     }
 
     /**
-     *  @desc Gets tops page header text
+     *  @desc Get tops page header text and total products
      *  @param no data
      *  @ returns { Promise }
      */
     getTopsHeaderText() {
         if(browser.isExisting(this.pageElements.topsHeaderText)){
             return browser.getText(this.pageElements.topsHeaderText);
+        }else{
+            return false;
+        }
+    }
+    getTotalProductResults() {
+        if(browser.isExisting(this.pageElements.topsHeaderValue)){
+            return browser.getText(this.pageElements.topsHeaderValue);
         }else{
             return false;
         }
@@ -85,10 +98,24 @@ class TopsPage {
             return false;
         }
     }
+    getBlackColourProductResults() {
+        if(browser.isExisting(this.pageElements.blackColourCount)){
+            return browser.getText(this.pageElements.blackColourCount);
+        }else{
+            return false;
+        }
+    }
     selectWhiteColourFilter(){
         if(browser.isExisting(this.pageElements.whiteColourFilter)){
             browser.click(this.pageElements.whiteColourFilter);
             return true;
+        }else{
+            return false;
+        }
+    }
+    getWhiteColourProductResults() {
+        if(browser.isExisting(this.pageElements.whiteColourCount)){
+            return browser.getText(this.pageElements.whiteColourCount);
         }else{
             return false;
         }

@@ -105,7 +105,6 @@ module.exports = function () {
             topspage.showProductView();
             var hasTopsHeader = topspage.getTopsHeaderText();
             assert.equal(hasTopsHeader,'Tops','this will pass');
-
             done();
         }
     )
