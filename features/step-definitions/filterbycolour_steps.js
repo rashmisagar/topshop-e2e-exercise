@@ -1,6 +1,6 @@
 
 var homepage = require('../../pageObjects/home');
-var topspage = require('../../pageObjects/tops');
+var topspage = require('../../pageObjects/topspage');
 
 
 var assert = require('assert')

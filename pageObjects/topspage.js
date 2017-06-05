@@ -1,88 +1,148 @@
-export const gotoTopsPage = () => {
-    browser.url('/en/tsuk/category/clothing-427/tops-44')
-}
+'use strict';
+/**
+ * @classdesc Object that represents Home > Tops page > Filters.
+ */
+class TopsPage {
 
-export const gettopsheaderText = () => {
-    return browser.getText('.PlpContainer-productListContainer > h1 > span.PlpHeader-title');
-}
+    get pageElements() {
+        return {
+            homeURL: '/',
+            topsURL: '/en/tsuk/category/clothing-427/tops-44',
+            topsHeaderText: '.PlpContainer-productListContainer > h1 > span.PlpHeader-title',
+            topsHeaderValue: '.PlpContainer-productListContainer > h1 > span.PlpHeader-total.PlpHeader-totalValue',
+            productListView: ':nth-child(1) > div.ProductViews.Filters-column > button.Button.ProductViews-button.is-active',
+            filterButton:'.Filters-column.Filters-refineButtonContainer > button',
+            colourFilter: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > ' +
+            'div.AccordionGroup.RefinementList > article:nth-child(1) > div.Accordion-header.is-padded > header > ' +
+            'div > span.RefinementList-label.is-value',
+            blackColourFilter: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
+            'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
+            'button:nth-child(1) > span.ValueOption-label',
+            blackColourCount: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
+            'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
+            'button:nth-child(1) > span.ValueOption-count',
+            whiteColourFilter: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
+            'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
+            'button:nth-child(15) > span.ValueOption-label',
+            whiteColourCount: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
+            'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
+            'button:nth-child(15) > span.ValueOption-count',
+            applyFilterButton: '.PlpContainer-productListContainer > div.Refinements.is-shown > div > ' +
+            'div.Refinements-applyButtonWrapper > button',
+            numberofFilterApplied: '.PlpContainer-productListContainer > div.Filters > div.Filters-row.Filters-refinement > ' +
+            'div.Filters-column.Filters-refineButtonContainer > button > span',
+            clearFilterButton:'.Refinements-clearButton',
+        };
+    }
 
-export const showProductView = () => {
-    browser.isEnabled(':nth-child(1) > div.ProductViews.Filters-column > button.Button.ProductViews-button.is-active');
-}
+    /**
+     *  @desc Get tops page header text and total products
+     *  @param no data
+     *  @ returns { Promise }
+     */
+    getTopsHeaderText() {
+        if(browser.isExisting(this.pageElements.topsHeaderText)){
+            return browser.getText(this.pageElements.topsHeaderText);
+        }else{
+            return false;
+        }
+    }
+    getTotalProductResults() {
+        if(browser.isExisting(this.pageElements.topsHeaderValue)){
+            return browser.getText(this.pageElements.topsHeaderValue);
+        }else{
+            return false;
+        }
+    }
+    /**
+     *  @desc Checks if the product list view is enabled on the page
+     *  @param no data
+     *  @ returns { Promise }
+     */
+    showProductView() {
+        if(browser.isEnabled(this.pageElements.productListView)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
-export const clickFilterButton = () => {
-    browser.isVisible('.Filters-column.Filters-refineButtonContainer > button');
-    browser.click('.Filters-column.Filters-refineButtonContainer > button');
-}
+    clickFilterButton(){
+        if(browser.isExisting(this.pageElements.filterButton)){
+            browser.click(this.pageElements.filterButton);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    getColourFilterText() {
+        if(browser.isExisting(this.pageElements.colourFilter)){
+            return browser.getText(this.pageElements.colourFilter);
+        }else{
+            return false;
+        }
+    }
+    clickColourFilter(){
+        if(browser.isExisting(this.pageElements.colourFilter)){
+            browser.click(this.pageElements.colourFilter);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    selectBlackColourFilter(){
+        if(browser.isExisting(this.pageElements.blackColourFilter)){
+            browser.click(this.pageElements.blackColourFilter);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    getBlackColourProductResults() {
+        if(browser.isExisting(this.pageElements.blackColourCount)){
+            return browser.getText(this.pageElements.blackColourCount);
+        }else{
+            return false;
+        }
+    }
+    selectWhiteColourFilter(){
+        if(browser.isExisting(this.pageElements.whiteColourFilter)){
+            browser.click(this.pageElements.whiteColourFilter);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    getWhiteColourProductResults() {
+        if(browser.isExisting(this.pageElements.whiteColourCount)){
+            return browser.getText(this.pageElements.whiteColourCount);
+        }else{
+            return false;
+        }
+    }
+    applyFilter(){
+        if(browser.isExisting(this.pageElements.applyFilterButton)){
+            browser.click(this.pageElements.applyFilterButton);
+            return true;
+        }else{
+            return false;
+        }
+    }
+    getNumberofFilterApplied() {
+        if(browser.isExisting(this.pageElements.numberofFilterApplied)){
+            return browser.getText(this.pageElements.numberofFilterApplied);
+        }else{
+            return false;
+        }
+    }
+    clearFilter(){
+        if(browser.isExisting(this.pageElements.clearFilterButton)){
+            browser.click(this.pageElements.clearFilterButton);
+            return true;
+        }else{
+            return false;
+        }
+    }
 
-export const getColourFilterText = () => {
-    return browser.getText('.PlpContainer-productListContainer > div.Refinements.is-shown > div > ' +
-        'div.AccordionGroup.RefinementList > article:nth-child(1) > div.Accordion-header.is-padded > header > ' +
-        'div > span.RefinementList-label.is-value');
 }
-
-export const clickColourFilter = () => {
-    browser.click('.PlpContainer-productListContainer > div.Refinements.is-shown > div > ' +
-        'div.AccordionGroup.RefinementList > article:nth-child(1) > div.Accordion-header.is-padded > header > ' +
-        'div > span.RefinementList-label.is-value');
-}
-
-
-export const isVisibleBlackColourFilter = () => {
-    return browser.isVisible('.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
-        'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
-        'button:nth-child(1) > span.ValueOption-label');
-}
-
-export const getBlackColourFilterText = () => {
-    return browser.getText('.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
-        'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
-        'button:nth-child(1) > span.ValueOption-label');
-}
-
-export const selectBlackColourFilter = () => {
-    browser.click('.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
-        'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
-        'button:nth-child(1) > span.ValueOption-label');
-}
-
-export const isVisibleWhiteColourFilter = () => {
-    return browser.isVisible('.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
-        'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
-        'button:nth-child(15) > span.ValueOption-label');
-}
-
-export const getWhiteColourFilterText = () => {
-    return browser.getText('.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
-        'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
-        'button:nth-child(15) > span.ValueOption-label');
-}
-
-export const selectWhiteColourFilter = () => {
-    browser.click('.PlpContainer-productListContainer > div.Refinements.is-shown > div > div.AccordionGroup.RefinementList > ' +
-        'article.Accordion.Accordion-groupMember.is-expanded > div.Accordion-wrapper > div > div > div > ' +
-        'button:nth-child(15) > span.ValueOption-label');
-}
-
-export const getColourFilters = () => {
-    browser.getText('.PlpContainer-productListContainer > div.Refinements.is-shown > div > ' +
-        'div.AccordionGroup.RefinementList > article.Accordion.Accordion-groupMember.is-expanded > ' +
-        'div.Accordion-header.is-padded > header > div > span.RefinementList-selection.is-value');
-}
-
-export const applyFilter = () => {
-    browser.isVisible('.PlpContainer-productListContainer > div.Refinements.is-shown > div > ' +
-        'div.Refinements-applyButtonWrapper > button');
-    browser.click('.PlpContainer-productListContainer > div.Refinements.is-shown > div > ' +
-        'div.Refinements-applyButtonWrapper > button');
-}
-
-export const getNumberofFilterApplied = () => {
-    return browser.getText('.PlpContainer-productListContainer > div.Filters > div.Filters-row.Filters-refinement > ' +
-        'div.Filters-column.Filters-refineButtonContainer > button > span');
-}
-
-export const clearFilter = () => {
-    browser.isVisible('.Refinements-clearButton');
-    browser.click('.Refinements-clearButton');
-}
+module.exports = new TopsPage();
