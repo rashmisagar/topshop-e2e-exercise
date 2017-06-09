@@ -1,3 +1,4 @@
+/*
 
 var homepage = require('../../pageObjects/home');
 var topspage = require('../../pageObjects/topspage');
@@ -117,4 +118,4 @@ module.exports = function () {
             done();
         }
     )
-}
+}*/
