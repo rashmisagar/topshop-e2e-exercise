@@ -10,10 +10,12 @@
     "babel-polyfill": "^6.16.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-register": "^6.24.0",
+    "chai": "^4.0.2",
     "cucumber": "^0.10.4",
     "wdio-cucumber-framework": "^0.1.0",
     "wdio-cucumber-reporter": "0.0.2",
     "wdio-dot-reporter": "0.0.6",
+    "wdio-junit-reporter": "^0.3.0",
     "wdio-selenium-standalone-service": "0.0.8",
     "webdriverio": "4.6.2"
   },
